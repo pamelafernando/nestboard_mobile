@@ -1,3 +1,15 @@
+
+Admin credentials for testing mobile app
+vendor@nestboard.dev
+password123
+
+Tenant(user) credentials for testing mobile app
+tenant1@nestboard.dev
+password123
+
+mobile APK https://github.com/pamelafernando/nestboard_mobile/releases/download/v1.0.0/app-release.apk
+
+
 This is a new [**React Native**](https://reactnative.dev) project, bootstrapped using [`@react-native-community/cli`](https://github.com/react-native-community/cli).
 
 # Getting Started
