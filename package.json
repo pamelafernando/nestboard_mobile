@@ -26,6 +26,7 @@
     "lucide-react-native": "^1.16.0",
     "react": "19.2.3",
     "react-native": "0.85.3",
+    "react-native-config": "^1.6.1",
     "react-native-gesture-handler": "^3.0.2",
     "react-native-get-location": "^6.0.1",
     "react-native-keyboard-aware-scroll-view": "^0.9.5",

@@ -3,16 +3,14 @@ import { createAsyncStorage } from "@react-native-async-storage/async-storage";
 import { store } from "../store/store";
 import { logout, saveToken } from "../store/authSlice";
 import { persistLogin, removeRefreshToken } from "../util/localStorage";
-import { Platform } from "react-native";
+import Config from "react-native-config";
 const storage = createAsyncStorage("appDB");
 
-const ANDROID_IP = "10.0.2.2"
-const IOS_IP = "127.0.0.1"
-
+// API_BASE_URL comes from .env (see react-native-config). Local dev points
+// at the Android emulator's loopback address (10.0.2.2); the deployed URL
+// is swapped in by changing .env, not by editing this file.
 export const apiClient = axios.create({
-  baseURL: `http://${(Platform.OS == 'android') ? ANDROID_IP : IOS_IP}:3001/api/`, //127.0.0.1
-  // baseURL: 'https://fed-backend-k7mo.onrender.com/api/',
-  //"http://172.20.10.5:3001/api/" + "properties"
+  baseURL: Config.API_BASE_URL,
   headers: {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
