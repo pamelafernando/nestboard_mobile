@@ -88,3 +88,22 @@ export interface PropertyLocation {
   lng: number;
   ratings: number;
 }
+
+export type Review = {
+  userId: string;
+  propertyId: string;
+  bookingId: string;
+  rating: number;
+  comment: string | null;
+  createdAt: string;
+  updatedAt: string;
+  user: {
+    displayName: string;
+  };
+}
+export type CreateReviewPayload = {
+  propertyId: string;
+  bookingId: string;
+  rating: number;
+  comment?: string;
+}

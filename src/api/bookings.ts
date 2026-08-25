@@ -1,6 +1,16 @@
 import { Property, PropertyItem, PropertyListResponse, RoomType } from "../types/properties";
 import { apiClient } from "./apiClient"
 
+export type MyBooking = {
+  id: string;
+  bookingStatus: string;
+  room: {
+    roomType: {
+      propertyId: string;
+    };
+  };
+};
+
 export const BookingAPI = {
   bookProperty: async (
     roomId: string,
@@ -9,8 +19,6 @@ export const BookingAPI = {
     period: number,
     total: string
   ) => {
-    //properties?page=1&limit=4&abc=xyz
-
     await apiClient.put<PropertyListResponse>('bookings', {
       roomId,
       seatIndex,
@@ -18,6 +26,9 @@ export const BookingAPI = {
       period,
       total: parseFloat(total)
     })
-    // return d.data;
-  }
+  },
+  getMyBookings: async () => {
+    const d = await apiClient.get<MyBooking[]>('bookings/my');
+    return d.data;
+  },
 }
